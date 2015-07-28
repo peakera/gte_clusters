@@ -20,6 +20,10 @@
     "name":"animals",
     "location":151371
   },
+    {
+    "name":"minorca cockerel",
+    "location":242409
+  },
   {
     "name":"birds",
     "location":193591
@@ -43,10 +47,6 @@
   {
     "name":"hens",
     "location":242396
-  },
-  {
-    "name":"minorca cockerel",
-    "location":242409
   },
   {
     "name":"horses",
