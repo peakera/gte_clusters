@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-  <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic|Open+Sans:400,600' rel='stylesheet' type='text/css'>
 <style>
 
 .node circle {
@@ -42,7 +41,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-d3.json("edward_fauna.json", function(error, root) {
+d3.json("https://api.myjson.com/bins/3tu84", function(error, root) {
   var nodes = tree.nodes(root),
       links = tree.links(nodes);
 
