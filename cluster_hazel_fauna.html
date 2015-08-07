@@ -8,8 +8,9 @@
   stroke-width: 1.5px;
 }
 
-.node {
+text {
   font: 15px sans-serif;
+  pointer-events: none;
 }
 
 .link {
@@ -26,7 +27,7 @@
 var diameter = 960;
 
 var tree = d3.layout.tree()
-    .size([360, diameter / 2 - 120])
+    .size([360, diameter / 2 - 200])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
 var diagonal = d3.svg.diagonal.radial()
@@ -53,6 +54,8 @@ d3.json("hazel_fauna.json", function(error, root) {
     .enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout);
 
   node.append("circle")
       .attr("r", 4.5);
@@ -65,5 +68,18 @@ d3.json("hazel_fauna.json", function(error, root) {
 });
 
 d3.select(self.frameElement).style("height", diameter - 150 + "px");
+
+function mouseover() { //makes the text size increase on mouseover
+  d3.select(this).select("text").transition()
+    .duration(750)
+    .style("font-size", "40px");
+
+ }
+
+function mouseout() { //returns text to original size
+  d3.select(this).select("text").transition()
+    .duration(750)
+    .style("font-size", "15px");
+ }
 </script>
 </body>
